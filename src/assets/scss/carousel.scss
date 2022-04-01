@@ -1,0 +1,78 @@
+@import "breakpoint.scss", "animations.scss";
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  height: 700px;
+  @include for-desktop-up {
+    height: 500px;
+  }
+
+  &-elements {
+    width: 80%;
+    z-index: 3;
+  }
+  &-element {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: transform 200ms ease-in;
+    height: 700px;
+    text-align: center;
+    padding: 2% 10%;
+    display: none;
+    @include for-desktop-up {
+      flex-direction: row;
+      height: 500px;
+      padding: 0% 10%;
+      text-align: left;
+    }
+    &.inL {
+      animation: slide-in-left 0.4s cubic-bezier(0.23, 1, 0.32, 1) both;
+    }
+    &.inR {
+      animation: slide-in-right 0.4s cubic-bezier(0.23, 1, 0.32, 1) both;
+    }
+    &.outL {
+      animation: slide-out-left 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+    }
+    &.outR {
+      animation: slide-out-right 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+    }
+    &.active {
+      display: flex;
+    }
+    & h3 {
+      font-size: 25px;
+    }
+    & h4 {
+      font-size: 40px;
+    }
+    & p {
+      margin: 15px 0;
+      @include for-desktop-up {
+        font-size: 20px;
+      }
+    }
+    & img {
+      width: 200px;
+      @include for-desktop-up {
+        width: 300px;
+      }
+    }
+    & .button {
+      z-index: 4;
+    }
+  }
+  &-buttonGroup {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    height: 700px;
+    @include for-desktop-up {
+      height: 500px;
+    }
+  }
+}

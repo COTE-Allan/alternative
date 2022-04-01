@@ -1,0 +1,75 @@
+@import "breakpoint.scss", "animations.scss";
+
+.home {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  @include for-desktop-up {
+    flex-direction: row;
+  }
+  color: white;
+  & a {
+    color: white;
+  }
+  &-update {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    @include for-desktop-up {
+      align-items: flex-end;
+      text-align: right;
+    }
+    animation: slide-in-left 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+  &-picture {
+    display: flex;
+    align-items: center;
+  }
+  &-title {
+    font-size: 35px;
+    @include for-big-tablet-potrait-up {
+      font-size: 50px;
+    }
+    @include for-desktop-up {
+      font-size: 80px;
+    }
+    margin-bottom: 10px;
+  }
+  &-book {
+    animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation-delay: 0.5s;
+    width: 250px;
+    @include for-big-tablet-potrait-up {
+      width: 400px;
+    }
+  }
+  &-read {
+    @include for-big-tablet-potrait-up {
+      font-size: 15px;
+    }
+    margin: 10px 0;
+    font-weight: 600;
+    font-size: 13px;
+    width: 300px;
+  }
+  & video,
+  .filter {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  & video {
+    z-index: -2;
+    opacity: 0.4;
+  }
+  & .filter {
+    z-index: -1;
+    background-color: black;
+    opacity: 0.5;
+  }
+}

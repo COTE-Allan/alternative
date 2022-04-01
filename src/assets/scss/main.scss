@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "breakpoint.scss";
+
+body {
+  font-family: "Montserrat", sans-serif;
+  height: 300vh;
+  overflow-x: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  width: 100vw;
+  z-index: 1;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  @include for-desktop-up {
+    transition: opacity 200ms ease-in, background-color 200ms ease-in;
+    justify-content: space-between;
+    flex-direction: row;
+    height: 70px;
+    background-color: transparent;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+  & #logoAlt {
+    display: none;
+    @include for-desktop-up {
+      width: 300px;
+      display: block;
+    }
+    // transform: translateY(25px);
+  }
+  & nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include for-desktop-up {
+      padding-right: 25px;
+    }
+    & a {
+      font-family: "Montserrat", sans-serif;
+      font-size: 13px;
+      padding: 4px;
+      font-weight: 500;
+      text-decoration: none;
+      color: white;
+      transition: color 200ms ease-in;
+      @include for-desktop-up {
+        font-size: 15px;
+        padding: 0 10px;
+      }
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  & .button {
+    display: none;
+    @include for-desktop-up {
+      display: flex;
+    }
+  }
+  &.is-inverted {
+    background-color: rgba(255, 255, 255, 0.5);
+    & a {
+      color: black;
+    }
+    & .button {
+      border: 3px black solid;
+    }
+  }
+}
+
+.button {
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px white solid;
+  padding: 5px 15px;
+  text-transform: uppercase;
+  transition: color 200ms ease-in, background-color 200ms ease-out,
+    border 200ms ease-in;
+  z-index: 5;
+  &-dark {
+    color: black;
+    border: 3px black solid;
+  }
+  &:hover {
+    text-decoration: none;
+    background-color: green;
+    color: white;
+  }
+}
+
+hr {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 1) 30%,
+    rgba(0, 0, 0, 1) 70%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  height: 2px;
+  width: 80%;
+  border: none;
+}
+
+.illustration {
+  background-attachment: fixed;
+  background-size: cover;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: 600;
+  color: white;
+  & h2 {
+    z-index: 1;
+  }
+  &.MP-University {
+    background-image: url("../img/mpUniversity.png");
+  }
+  &.MP-LeHavre {
+    background-image: url("../img//mpLeHavre.png");
+  }
+  & .filter {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.1;
+    height: 300px;
+    position: absolute;
+  }
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #383838 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 11px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #383838;
+  border-radius: 0px;
+  border: 3px none #ffffff;
+}
+
+footer {
+  background-color: rgb(228, 228, 228);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-top: 30px;
+  & p {
+    width: 60%;
+    font-size: 15px;
+    text-align: center;
+    & a {
+      color: black;
+      font-weight: 600s;
+    }
+  }
+  /* Tasse Koffi Cup */
+  & #koffi {
+    width: 100px;
+    height: 130px;
+    margin-top: 10px;
+  }
+
+  & #Fumée {
+    animation: slide-top 7s ease-in-out both infinite;
+  }
+}

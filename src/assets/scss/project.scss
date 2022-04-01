@@ -1,0 +1,72 @@
+@import "breakpoint.scss";
+
+.project {
+  background-color: white;
+  width: 100vw;
+
+  &-content {
+    display: flex;
+    align-items: center;
+    text-align: right;
+    justify-content: space-evenly;
+    flex-direction: column-reverse;
+    @include for-desktop-up {
+      flex-direction: row;
+    }
+  }
+
+  &-text {
+    width: 80%;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    @include for-big-tablet-potrait-up {
+      font-size: 20px;
+    }
+    @include for-desktop-up {
+      width: 60%;
+      height: 400px;
+      font-size: 22px;
+      line-height: 40px;
+    }
+  }
+  &-illustration {
+    height: 150px;
+    border-bottom: 3px black solid;
+    opacity: 0;
+    @include for-desktop-up {
+      height: 390px;
+      border: none;
+    }
+    &.active {
+      animation: slide-in-right 1s cubic-bezier(0.23, 1, 0.32, 1) both;
+    }
+  }
+  & img {
+    width: 300px;
+    transform: translateY(-100px);
+    overflow: hidden;
+    object-fit: cover;
+    object-position: 0% 10%; /* try 20px 10px */
+    height: 250px;
+    @include for-desktop-up {
+      width: 500px;
+      height: 500px;
+    }
+  }
+  @include for-desktop-up {
+    &.left &-content {
+      flex-direction: row-reverse;
+    }
+    &.left &-illustration.active {
+      &.active {
+        animation: slide-in-left 1s cubic-bezier(0.23, 1, 0.32, 1) both;
+      }
+    }
+  }
+}
